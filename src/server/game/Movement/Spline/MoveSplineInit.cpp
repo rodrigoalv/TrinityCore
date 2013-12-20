@@ -135,6 +135,32 @@ namespace Movement
 
         Location loc = move_spline.ComputePosition();
         args.flags = MoveSplineFlag::Done;
+        unit->m_movementInfo.RemoveMovementFlag(MOVEMENTFLAG_FORWARD | MOVEMENTFLAG_SPLINE_ENABLED);
+        move_spline.Initialize(args);
+
+        WorldPacket data(SMSG_MONSTER_MOVE, 64);
+        data.append(unit->GetPackGUID());
+        if (unit->HasUnitMovementFlag(MOVEMENTFLAG_ONTRANSPORT) && unit->GetTransGUID())
+        {
+            data.SetOpcode(SMSG_MONSTER_MOVE_TRANSPORT);
+            data.appendPackGUID(unit->GetTransGUID());
+            data << int8(unit->GetTransSeat());
+        }
+
+        PacketBuilder::WriteStopMovement(loc, args.splineId, data);
+        unit->SendMessageToSet(&data, true);
+    }
+
+    void MoveSplineInit::Stop()
+    {
+        MoveSpline& move_spline = *unit->movespline;
+
+        // No need to stop if we are not moving
+        if (move_spline.Finalized())
+            return;
+
+        Location loc = move_spline.ComputePosition();
+        args.flags = MoveSplineFlag::Done;
         unit->m_movementInfo.RemoveMovementFlag(MOVEMENTFLAG_FORWARD);
         move_spline.Initialize(args);
 

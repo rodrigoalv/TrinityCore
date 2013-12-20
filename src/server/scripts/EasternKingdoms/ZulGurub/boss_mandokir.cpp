@@ -368,7 +368,7 @@ class npc_chained_spirit : public CreatureScript
                 _revivePlayerGUID = 0;
             }
 
-            void SetGUID(uint64 guid, int32 /*type = 0 */) OVERRIDE
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
             {
                 _revivePlayerGUID = guid;
             }
@@ -485,7 +485,7 @@ class spell_mandokir_bloodletting : public SpellScriptLoader
                 return true;
             }
 
-            void HandleEffectPeriodic(AuraEffect const* aurEff)
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
             {
                 Unit* target = GetTarget();
                 Unit* caster = GetCaster();

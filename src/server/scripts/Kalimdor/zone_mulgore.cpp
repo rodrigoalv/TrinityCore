@@ -200,6 +200,7 @@ public:
 
 };
 
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
 void AddSC_mulgore()
 {
     new npc_skorn_whitecloud();

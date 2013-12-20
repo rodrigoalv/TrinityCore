@@ -40,9 +40,9 @@ enum eOOX
 {
     SAY_OOX_START           = 0,
     SAY_OOX_AGGRO           = 1,
-    SAY_OOX_AMBUSH          = 3,
-    SAY_OOX_AMBUSH_REPLY    = 4,
-    SAY_OOX_END             = 5,
+    SAY_OOX_AMBUSH          = 2,
+    SAY_OOX_AMBUSH_REPLY    = 3,
+    SAY_OOX_END             = 4,
 
     QUEST_RESQUE_OOX_09     = 836,
 
@@ -86,7 +86,7 @@ public:
     {
         npc_00x09hlAI(Creature* creature) : npc_escortAI(creature) { }
 
-        void Reset() { }
+        void Reset() OVERRIDE { }
 
         void WaypointReached(uint32 waypointId)
         {

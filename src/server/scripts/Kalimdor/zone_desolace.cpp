@@ -116,6 +116,8 @@ public:
 };
 
 /*######
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
+        void Reset() OVERRIDE { }
 ## go_demon_portal
 ######*/
 

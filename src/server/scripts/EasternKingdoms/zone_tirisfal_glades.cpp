@@ -15,6 +15,7 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
 void AddSC_tirisfal_glades()
 {
 }

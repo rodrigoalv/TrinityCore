@@ -63,6 +63,7 @@ class boss_janalai : public CreatureScript
             {
                 Talk(SAY_DEATH);
                 _JustDied();
+                //TC_LOG_ERROR("scripts", "Eggs %d at middle", templist.size());
             }
 
             void KilledUnit(Unit* victim) OVERRIDE
@@ -77,6 +78,16 @@ class boss_janalai : public CreatureScript
                     return;
 
                 events.Update(diff);
+            npc_janalai_firebombAI(Creature* creature) : ScriptedAI(creature){ }
+            void Reset() OVERRIDE { }
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
+            void AttackStart(Unit* /*who*/) OVERRIDE { }
+            void MoveInLineOfSight(Unit* /*who*/) OVERRIDE { }
+            void UpdateAI(uint32 /*diff*/) OVERRIDE { }
+                //TC_LOG_ERROR("scripts", "Eggs %d at %d", templist.size(), side);
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
+            void AttackStart(Unit* /*who*/) OVERRIDE { }
+            void MoveInLineOfSight(Unit* /*who*/) OVERRIDE { }
 
                 if (me->HasUnitState(UNIT_STATE_CASTING))
                     return;
@@ -101,6 +112,9 @@ class boss_janalai : public CreatureScript
         }
 };
 
+        npc_janalai_eggAI(Creature* creature) : ScriptedAI(creature){ }
+        void Reset() OVERRIDE { }
+        void UpdateAI(uint32 /*diff*/) OVERRIDE { }
 void AddSC_boss_janalai()
 {
     new boss_janalai();

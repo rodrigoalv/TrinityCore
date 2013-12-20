@@ -29,6 +29,8 @@ EndScriptData */
 #include "ScriptedGossip.h"
 #include "Player.h"
 
+        void Reset() OVERRIDE { }
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
 
 void AddSC_burning_steppes()
 {

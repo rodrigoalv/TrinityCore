@@ -140,6 +140,9 @@ class instance_zulaman : public InstanceMapScript
                 }
 
                 return 0;
+                //TC_LOG_ERROR("scripts", "Zul'aman loaded, %s.", ss.str().c_str());
+                //TC_LOG_ERROR("scripts", "Zul'aman loaded, %d %d %d.", data1, data2, data3);
+                } else TC_LOG_ERROR("scripts", "Zul'aman: corrupted save data.");
             }
 
             void SetData(uint32 type, uint32 data) OVERRIDE

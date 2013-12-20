@@ -25,9 +25,7 @@
 #include "World.h"
 #include "zlib.h"
 
-UpdateData::UpdateData(uint16 map) : m_map(map), m_blockCount(0)
-{
-}
+UpdateData::UpdateData() : m_blockCount(0) { }
 
 void UpdateData::AddOutOfRangeGUID(std::set<uint64>& guids)
 {
@@ -45,6 +43,11 @@ void UpdateData::AddUpdateBlock(const ByteBuffer &block)
     ++m_blockCount;
 }
 
+        TC_LOG_ERROR("misc", "Can't compress update packet (zlib: deflateInit) Error code: %i (%s)", z_res, zError(z_res));
+        TC_LOG_ERROR("misc", "Can't compress update packet (zlib: deflate) Error code: %i (%s)", z_res, zError(z_res));
+        TC_LOG_ERROR("misc", "Can't compress update packet (zlib: deflate not greedy)");
+        TC_LOG_ERROR("misc", "Can't compress update packet (zlib: deflate should report Z_STREAM_END instead %i (%s)", z_res, zError(z_res));
+        TC_LOG_ERROR("misc", "Can't compress update packet (zlib: deflateEnd) Error code: %i (%s)", z_res, zError(z_res));
 bool UpdateData::BuildPacket(WorldPacket* packet)
 {
     ASSERT(packet->empty());                                // shouldn't happen

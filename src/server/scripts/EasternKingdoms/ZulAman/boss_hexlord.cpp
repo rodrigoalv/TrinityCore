@@ -38,6 +38,7 @@ enum Spells
 };
 
 enum Events
+    void Reset() OVERRIDE { }
 {
 };
 
@@ -90,6 +91,9 @@ class boss_hexlord_malacrass : public CreatureScript
                     {
                         default:
                             break;
+    boss_gazakrothAI(Creature* creature) : boss_hexlord_addAI(creature)  { }
+            boss_lord_raadanAI(Creature* creature) : boss_hexlord_addAI(creature)  { }
+            boss_darkheartAI(Creature* creature) : boss_hexlord_addAI(creature)  { }
                     }
                 }
                 */

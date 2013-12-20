@@ -107,7 +107,7 @@ public:
             }
         }
 
-        void Reset() {}
+        void Reset() OVERRIDE { }
 
         void EnterCombat(Unit* who)
         {
@@ -135,6 +135,8 @@ public:
 };
 
 /*######
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
+            //TC_LOG_INFO("scripts", "DEBUG: p(%i) k(%i) d(%u) W(%i)", Phase, KillCount, diff, WaitTimer);
 ## AddSC
 ######*/
 

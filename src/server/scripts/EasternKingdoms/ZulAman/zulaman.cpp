@@ -22,6 +22,10 @@
 #include "CreatureTextMgr.h"
 #include "SpellScript.h"
 #include "zulaman.h"
+            void Reset() OVERRIDE { }
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
+            void Reset() OVERRIDE { }
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
 
 enum Says
 {
@@ -97,6 +101,7 @@ class npc_voljin_zulaman : public CreatureScript
                 _gongCount = 0;
             }
 
+            void EnterCombat(Unit* /*who*/) OVERRIDE { }
             void sGossipSelect(Player* player, uint32 sender, uint32 action) OVERRIDE
             {
                 if (_instance->GetData(DATA_ZULAMAN_STATE) != NOT_STARTED)

@@ -40,9 +40,7 @@ TotemAI::TotemAI(Creature* c) : CreatureAI(c), i_victimGuid(0)
     ASSERT(c->IsTotem());
 }
 
-void TotemAI::MoveInLineOfSight(Unit* /*who*/)
-{
-}
+void TotemAI::MoveInLineOfSight(Unit* /*who*/) { }
 
 void TotemAI::EnterEvadeMode()
 {
@@ -97,4 +95,6 @@ void TotemAI::UpdateAI(uint32 /*diff*/)
 
 void TotemAI::AttackStart(Unit* /*victim*/)
 {
+                player->SendDirectMessage(&data);
+            }
 }

@@ -16,6 +16,8 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+        void Reset() OVERRIDE { }
+        void Reset() OVERRIDE { }
 void AddSC_darkshore()
 {
 }

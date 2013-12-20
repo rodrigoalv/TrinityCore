@@ -76,6 +76,9 @@ class boss_akilzon : public CreatureScript
                 {
                     switch (eventId)
                     {
+                                /// @todo: fix it in correct way, that causes player to can fly until logout
+                                /*
+                                */
                         default:
                             break;
                     }
@@ -84,6 +87,7 @@ class boss_akilzon : public CreatureScript
 
                 DoMeleeAttackIfReady();
             }
+            void MoveInLineOfSight(Unit* /*who*/) OVERRIDE { }
         };
 
         CreatureAI* GetAI(Creature* creature) const OVERRIDE

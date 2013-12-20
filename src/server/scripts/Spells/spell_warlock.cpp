@@ -233,6 +233,7 @@ class spell_warl_create_healthstone : public SpellScriptLoader
                 if (!sSpellMgr->GetSpellInfo(SPELL_WARLOCK_CREATE_HEALTHSTONE))
                     return false;
                 return true;
+                                TC_LOG_ERROR("spells", "Unknown rank of Improved Healthstone id: %d", aurEff->GetId());
             }
 
             bool Load() OVERRIDE

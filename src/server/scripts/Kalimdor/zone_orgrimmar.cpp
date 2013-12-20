@@ -20,6 +20,8 @@
 #include "ScriptedGossip.h"
 #include "Player.h"
 
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
+        void EnterCombat(Unit* /*who*/) OVERRIDE { }
 void AddSC_orgrimmar()
 {
 }

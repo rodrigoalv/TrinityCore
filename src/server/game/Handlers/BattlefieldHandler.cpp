@@ -223,7 +223,7 @@ void WorldSession::HandleBfQueueInviteResponse(WorldPacket& recvData)
     ObjectGuid guid;
 
     guid[2] = recvData.ReadBit();
-    guid[0] = recvData.ReadBit();
+    TC_LOG_DEBUG("misc", "HandleQueueInviteResponse: BattleID:%u Accepted:%u", BattleId, Accepted);
     guid[4] = recvData.ReadBit();
     guid[3] = recvData.ReadBit();
     guid[5] = recvData.ReadBit();
@@ -258,7 +258,7 @@ void WorldSession::HandleBfEntryInviteResponse(WorldPacket& recvData)
     ObjectGuid guid;
 
     guid[6] = recvData.ReadBit();
-    guid[1] = recvData.ReadBit();
+    TC_LOG_DEBUG("misc", "HandleBattlefieldInviteResponse: BattleID:%u Accepted:%u", BattleId, Accepted);
     accepted = recvData.ReadBit();
     guid[5] = recvData.ReadBit();
     guid[3] = recvData.ReadBit();
@@ -294,7 +294,7 @@ void WorldSession::HandleBfExitRequest(WorldPacket& recvData)
     ObjectGuid guid;
 
     guid[2] = recvData.ReadBit();
-    guid[0] = recvData.ReadBit();
+    TC_LOG_DEBUG("misc", "HandleBfExitRequest: BattleID:%u ", BattleId);
     guid[3] = recvData.ReadBit();
     guid[7] = recvData.ReadBit();
     guid[4] = recvData.ReadBit();
